@@ -5,7 +5,7 @@ import io
 def main():
     st.title("GOES 16 Images")
 
-    folder_path = "/workspaces/goes1/GOES"
+    folder_path = "GOES/IMAGES"
 
 
     if not os.path.exists(folder_path):
