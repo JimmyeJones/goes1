@@ -16,6 +16,8 @@ def main():
         st.warning("No folders with images found in the directory!")
         return
 
+    st.sidebar.link_button("Donate", "http:DONATE_LINK#change")
+    
     image_types = [["All Images", "Full Color", "Blue", "Red", "Near Infrared", "Cirrus", "Snow/Ice", "Cloud Particle Size", "Thermal", "Upper-level water vapor", "Mid-level water vapor", "Lower-level water vapor", "Cloud-top", "Ozone-level", "Infrared-less sensitive", "Infrared", "Infrared-sensitive", "Carbon Dioxide"],["", "_FC_", "_1_", "_2_", "_3_", "_4_", "_5_", "_6_", "_7_", "_8_", "_9_", "_10_", "_11_", "_12_", "_13_", "_14_", "_15_", "_16_"]]
 
     folder_selected = st.sidebar.selectbox("Select a folder", folders_with_images)
