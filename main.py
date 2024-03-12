@@ -2,7 +2,17 @@ import streamlit as st
 import os
 from PIL import Image
 import io
-def main():
+def about():
+    st.title("About this site")
+    st.write("Have you ever wanted near-realtime images from space? If so, you have come to the right site! The Websat website uses amature radio equipment to automate the reciving process of satelite images. Satelites signals are recieved with a Nooelec SDR, and are decoded with the software [Satdump](https://www.satdump.org/). ")
+    st.title("Donations")
+    st.write("All donations are used to upgrade, add, or fix equipment/software. Donations can be made [here](https://change_this_to_donate_link). All donations are greatly apreciated!")
+    st.subheader("Upgrde Progress")
+    st.write(st.experimental_user.email)
+    st.subheader("Defintitions")
+    st.write("Geostationary satelite - A satelite that orbits the Earth at the same speed as it turns; satellites that always see the same part of the Earth")
+    st.write("SDR - Software Defined Radio; a radio conected to the computer")
+def goes16():
     st.title("GOES 16 Images")
 
     folder_path = "GOES/IMAGES"
@@ -16,7 +26,7 @@ def main():
         st.warning("No folders with images found in the directory!")
         return
 
-    st.sidebar.link_button("Donate", "http:DONATE_LINK#change")
+    
     
     image_types = [["All Images", "Full Color", "Blue", "Red", "Near Infrared", "Cirrus", "Snow/Ice", "Cloud Particle Size", "Thermal", "Upper-level water vapor", "Mid-level water vapor", "Lower-level water vapor", "Cloud-top", "Ozone-level", "Infrared-less sensitive", "Infrared", "Infrared-sensitive", "Carbon Dioxide"],["", "_FC_", "_1_", "_2_", "_3_", "_4_", "_5_", "_6_", "_7_", "_8_", "_9_", "_10_", "_11_", "_12_", "_13_", "_14_", "_15_", "_16_"]]
 
@@ -75,7 +85,13 @@ def main():
                     mime="image/png",
                     key=button_key
                     )
-            
+def main():
+    st.sidebar.link_button("Donate", "http:DONATE_LINK#change")
+    page = st.sidebar.selectbox("Select a page/satellite", ["Goes 16 - HRIT", "About this site"])
+    if page == "Goes 16 - HRIT":
+        goes16()
+    elif page == "About this site":
+        about()
             
 def create_combined_image(folder_path, output_path):
     image_files = [os.path.join(folder_path, file) for file in os.listdir(folder_path) if file.endswith(('.jpg', '.jpeg', '.png', '.gif')) and "FC" in file]
