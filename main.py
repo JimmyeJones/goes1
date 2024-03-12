@@ -8,7 +8,7 @@ def about():
     st.title("Donations")
     st.write("All donations are used to upgrade, add, or fix equipment/software. Donations can be made [here](https://change_this_to_donate_link). All donations are greatly apreciated!")
     st.subheader("Upgrde Progress")
-    st.write(st.experimental_user.email)
+    st.write(st.experimental_user)
     st.subheader("Defintitions")
     st.write("Geostationary satelite - A satelite that orbits the Earth at the same speed as it turns; satellites that always see the same part of the Earth")
     st.write("SDR - Software Defined Radio; a radio conected to the computer")
